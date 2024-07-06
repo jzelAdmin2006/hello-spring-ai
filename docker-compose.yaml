@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  springboot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - OLLAMA_HOST=ollama
+    depends_on:
+      - llama3
+
+  llama3:
+    hostname: ollama
+    build:
+      context: ./llama3
+      dockerfile: Dockerfile
+    ports:
+      - "11434:11434"
