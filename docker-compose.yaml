@@ -8,12 +8,12 @@ services:
     environment:
       - OLLAMA_HOST=ollama
     depends_on:
-      - llama3
+      - gemma2
 
-  llama3:
+  gemma2:
     hostname: ollama
     build:
-      context: ./llama3
+      context: ./gemma2
       dockerfile: Dockerfile
     ports:
       - "11434:11434"
